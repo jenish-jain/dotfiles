@@ -1,24 +1,54 @@
-#!/bin/sh
-#
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
+#!/usr/bin/env bash
 
-# Check for Homebrew
-if test ! $(which brew)
-then
-  echo "  Installing Homebrew for you."
+# Abort on error
+set -e
 
-  # Install the correct homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi
+echo "Checking if Homebrew is already installed..."; 
 
+# Checks if Homebrew is installed
+if test ! $(which brew); then
+  echo "Installing Homebrew...";
+  yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+  echo "Homebrew is already installed...";
 fi
 
-exit 0
+# Install the essential brews
+## utilities
+brew install gh
+brew install git
+brew install tree
+brew install zsh
+brew install thefuck
+brew install htop
+
+## development
+brew install go
+brew install node
+brew install python
+brew install ansible
+brew install docker 
+brew install kubernetes-cli
+
+## custom
+brew tap jenish-jain/tap
+brew install jenish-jain/tap/sidekick
+
+
+# Install essential casks
+
+## development
+# brew install --cask iterm2
+brew install --cask visual-studio-code
+brew install --cask sourcetree
+
+## entertainment
+brew install --cask spotify
+
+# Update and Upgrade
+echo "Updating and upgrading Homebrew..."; echo;
+yes | brew update
+yes | brew upgrade
+
+# Remove outdated versions from the cellar
+brew cleanup
