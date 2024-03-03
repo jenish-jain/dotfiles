@@ -21,6 +21,7 @@ brew install tree
 brew install zsh
 brew install thefuck
 brew install htop
+brew install task
 
 ## development
 brew install go
@@ -41,6 +42,10 @@ brew install jenish-jain/tap/sidekick
 # brew install --cask iterm2
 brew install --cask visual-studio-code
 brew install --cask sourcetree
+brew install --cask sublime-text
+brew install --cask slack
+brew install --cask postman
+brew install --cask google-cloud-sdk
 
 ## entertainment
 brew install --cask spotify
