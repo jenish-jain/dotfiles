@@ -30,11 +30,12 @@ brew install python
 brew install ansible
 brew install docker 
 brew install kubernetes-cli
+brew tap mongodb/brew
+brew install --HEAD colima
 
 ## custom
 brew tap jenish-jain/tap
 brew install jenish-jain/tap/sidekick
-
 
 # Install essential casks
 
