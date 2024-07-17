@@ -32,6 +32,8 @@ brew install docker
 brew install kubernetes-cli
 brew tap mongodb/brew
 brew install --HEAD colima
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
 
 ## custom
 brew tap jenish-jain/tap
